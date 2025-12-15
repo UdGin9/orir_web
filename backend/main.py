@@ -49,6 +49,7 @@ async def calculate(request: Request):
             x_in = float(x_in)
             x_in_infinity = float(x_in_infinity)
             data = [float(x) for x in data_str_list if x.strip() != '']
+            data.sort()
         except (ValueError, TypeError) as e:
             raise HTTPException(status_code=400, detail=f"Ошибка преобразования данных в число: {str(e)}")
 
@@ -145,6 +146,7 @@ async def reculculate(request: Request):
 
         try:
              data = [float(x) for x in filtered_data_str]
+             data.sort()
         except (ValueError, TypeError) as e:
             raise HTTPException(status_code=400, detail=f"Ошибка преобразования данных в число: {str(e)}")
         

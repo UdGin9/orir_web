@@ -13,7 +13,6 @@ def pid_regul(F1, tau, k, F2, data):
     :param data: массив данных для масштабирования
     :return: t, y, Kp, Ki, Kd
     """
-
     num_pade, den_pade = control.pade(tau, n=3)
     delay_tf = control.TransferFunction(num_pade, den_pade)
     plant = control.TransferFunction([k], [F2, F1, 1])
