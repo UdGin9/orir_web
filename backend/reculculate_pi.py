@@ -21,4 +21,19 @@ def reculculate_pi(F1, k, Kp, Ki, tau, time, data):
     t, y = control.step_response(closed_loop, T=np.linspace(0, time, 1000))
     y = max(data) * y
 
+
+    negative_indices = np.where(y < 0)[0]
+    if negative_indices.size > 0:
+        last_neg_idx = negative_indices[-1]
+        y = y[last_neg_idx + 1:]
+        t = t[last_neg_idx + 1:]
+
+    if tau > 0:
+        n_zeros = int(np.floor(tau)) + 1
+        if n_zeros > 0:
+            t_zeros = np.arange(0, n_zeros)
+            y_zeros = np.zeros(n_zeros)
+            t = np.concatenate([t_zeros, t + tau])
+            y = np.concatenate([y_zeros, y])
+
     return t, y

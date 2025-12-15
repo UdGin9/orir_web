@@ -3,7 +3,7 @@ import numpy as np
 
 def p_regul(F1, tau, k, data):
     """
-    Расчёт П-регулятора по методу Зиглера–Никольса.
+    Расчёт П-регулятора по методу Циглера–Никольса.
     
     :param F1: постоянная времени объекта
     :param tau: время запаздывания
@@ -49,5 +49,20 @@ def p_regul(F1, tau, k, data):
     closed_loop = control.feedback(controller * system_with_delay, 1)
     t, y = control.step_response(closed_loop, T=np.linspace(0, 50, 1000))
     y = max(data) * y
+
+
+    negative_indices = np.where(y < 0)[0]
+    if negative_indices.size > 0:
+        last_neg_idx = negative_indices[-1]
+        y = y[last_neg_idx + 1:]
+        t = t[last_neg_idx + 1:]
+
+    if tau > 0:
+        n_zeros = int(np.floor(tau)) + 1
+        if n_zeros > 0:
+            t_zeros = np.arange(0, n_zeros)
+            y_zeros = np.zeros(n_zeros)
+            t = np.concatenate([t_zeros, t + tau])
+            y = np.concatenate([y_zeros, y])
 
     return t, y, best_Kp
