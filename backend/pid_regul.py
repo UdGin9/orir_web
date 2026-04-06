@@ -90,7 +90,7 @@ def pid_regul(F1, tau, k, F2, data):
         t = t[last_neg_idx + 1:]
     
     if tau > 0:
-        n_pts = int(round(tau / 0.1)) + 1
+        n_pts = int(round(tau / 0.1)) + 2
         t_zeros = np.linspace(0, tau, n_pts)
         y_zeros = np.zeros(n_pts)
         t = np.concatenate([t_zeros, t + tau])
