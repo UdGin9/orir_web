@@ -8,7 +8,6 @@ from pid_regul import pid_regul
 from reculculate_p import reculculate_p
 from reculculate_pi import reculculate_pi
 from reculculate_pid import reculculate_pid
-import uvicorn
 
 app = FastAPI()
 
@@ -173,6 +172,7 @@ async def reculculate(request: Request):
         raise HTTPException(status_code=500, detail=f"Ошибка выполнения расчёта: {str(e)}")
 
 if __name__ == "__main__":
+    import uvicorn
 
     print("🚀 FastAPI-сервер запускается на http://127.0.0.1:8000")
     print("Остановка — Ctrl+C")
