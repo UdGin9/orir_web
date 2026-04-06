@@ -36,8 +36,8 @@ def reculculate_pid(F1, F2, k, Kp, Ki, Kd, tau, time, data):
     if tau > 0:
         n_zeros = int(np.floor(tau) + 1)
         if n_zeros > 0:
-            t_zeros = np.arange(0, n_zeros)
-            y_zeros = np.zeros(n_zeros)
+            t_zeros = np.arange(0, n_zeros, 0.1)
+            y_zeros = np.zeros(n_zeros * 10)
             t_shifted = t + tau
             t = np.concatenate([t_zeros, t_shifted])
             y = np.concatenate([y_zeros, y])

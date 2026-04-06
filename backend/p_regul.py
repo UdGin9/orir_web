@@ -60,8 +60,8 @@ def p_regul(F1, tau, k, data):
     if tau > 0:
         n_zeros = int(np.floor(tau)) + 1
         if n_zeros > 0:
-            t_zeros = np.arange(0, n_zeros)
-            y_zeros = np.zeros(n_zeros)
+            t_zeros = np.arange(0, n_zeros, 0.1)
+            y_zeros = np.zeros(n_zeros * 10)
             t = np.concatenate([t_zeros, t + tau])
             y = np.concatenate([y_zeros, y])
 

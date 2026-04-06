@@ -172,7 +172,7 @@ async def reculculate(request: Request):
         print(f"Ошибка на сервере: {e}")
         raise HTTPException(status_code=500, detail=f"Ошибка выполнения расчёта: {str(e)}")
 
-if name == "main":
+if __name__ == "__main__":
 
     print("🚀 FastAPI-сервер запускается на http://127.0.0.1:8000")
     print("Остановка — Ctrl+C")
