@@ -18,7 +18,7 @@ const routes = [
   { title: "Расчет", component: <InputDataPage /> },
   { title: "Безразмерный вид", component: <GraphDimensionlessPage /> },
   { title: "Передаточная функция", component: <TransferFunctionPage /> },
-  { title: "Регулятор", component: <RegulPageGraph /> },
+  { title: "График ПХ", component: <RegulPageGraph /> },
 ]
 
 

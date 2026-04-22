@@ -128,7 +128,7 @@ export const RegulPageGraph = () => {
 
   return (
     <div className="p-10 flex flex-col gap-10 text-center">
-      <div className="text-3xl font-bold text-center">Регулятор</div>
+      <div className="text-3xl font-bold text-center">График переходного процесса</div>
       <Card>
         <CardContent>
           {chartData.length === 0 ? (

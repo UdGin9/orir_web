@@ -28,7 +28,7 @@ const itemsNavigate = [
   { title: 'Расчет' },
   { title: 'Безразмерный вид' },
   { title: 'Передаточная функция' },
-  { title: 'Регулятор' },
+  { title: 'График ПХ' },
 ];
 
 export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
